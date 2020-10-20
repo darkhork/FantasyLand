@@ -5,6 +5,7 @@ using UnityEngine;
 public class MoveCtl : MonoBehaviour
 {
     public Transform[] points;
+    public static bool isStopped = false;
     public enum MoveType
     {
         WAY_POINT,
@@ -33,6 +34,7 @@ public class MoveCtl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isStopped) return;
         switch (moveType)
         {
             case MoveType.WAY_POINT:
