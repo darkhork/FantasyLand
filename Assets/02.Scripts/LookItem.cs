@@ -6,10 +6,15 @@ using UnityEngine.EventSystems;
 public class LookItem : MonoBehaviour,IPointerEnterHandler,
     IPointerExitHandler, IGvrPointerHoverHandler
 {
-    // Start is called before the first frame update
+    private Animator anim;
+    private readonly int hashIsOpen = Animator.StringToHash("IsOpen");
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
+    }
+    public void OnBoxOpen(bool isOpen)
+    {
+        anim.SetBool(hashIsOpen, isOpen);
     }
 
     // Update is called once per frame
